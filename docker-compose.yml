@@ -1,0 +1,69 @@
+version: '3'
+
+services:
+  mysql-dev:
+    image: mysql:8.0.34-debian
+    environment:
+      MYSQL_ROOT_PASSWORD: 'AnhIT@ngugat'
+      MYSQL_DATABASE: blogapp
+    ports:
+      - "3306:3306"
+    volumes:
+      - "./mysql/conf:/etc/mysql/conf.d/config-file.cnf"
+      - "./mysql/data:/var/lib/mysql:rw"
+
+  mysql-legacy:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: 'AnhIT@ngugat'
+      MYSQL_DATABASE: legacyapp
+    ports:
+      - "3305:3306"
+    volumes:
+      - "./mysql57/conf:/etc/mysql/conf.d/config-file.cnf"
+      - "./mysql57/data:/var/lib/mysql:rw"
+
+  pgdb:
+    image: postgres
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: 'AnhIT@ngugat'
+      POSTGRES_DB: blogapp
+    volumes:
+      - ./postgre/data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  mssql:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sql-server
+    hostname: mssql
+    environment:
+      ACCEPT_EULA: 'Y'
+      MSSQL_SA_PASSWORD: 'AnhIT@ngugat'
+      MSSQL_PID: 'Developer'
+      MSSQL_TCP_PORT: 1433
+    restart: always
+    ports:
+      - "1433:1433"
+    volumes:
+      - ./mssql/data:/var/opt/mssql/data
+
+  mongo:
+    image: mongo:3.4.21-xenial
+    container_name: mongo
+    volumes:
+      - ./mongo/data:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=AnhIT@ngugat
+    ports:
+      - "27017:27017"
+
+
+  admin:
+    image: adminer
+    ports:
+      - 8080:8080
