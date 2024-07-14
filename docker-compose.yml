@@ -35,9 +35,7 @@ services:
       - "5432:5432"
 
   mssql:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: mcr.microsoft.com/mssql/server:2022-latest
     container_name: sql-server
     hostname: mssql
     environment:
