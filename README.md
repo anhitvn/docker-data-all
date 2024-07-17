@@ -1,8 +1,23 @@
 # docker-data-all
 
+### Tool database management
+- MySQL: MySQL Workbench
+- MSSQL: Azure Data Studio
+
+### MySQL
+
+- MySQL version: 9.0.0
+- Psw root: `AnhIT@ngugat`
+- Fist Data: `anhit`
+- Run command:
+  ```
+  docker-compose -f mysql.yml up -d
+  ```
+  or run from docker-compose.yml with old version.
+
 ### Start MSSQL use Docker-compose (map-volume)
 
-MSSQL Version: 2022-latest
+MSSQL Version: `2022-latest`
 
 **Step 1:** Run command deploy mssql docker:
 

@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  mysql-dev:
+    image: mysql:9.0.0
+    environment:
+      MYSQL_ROOT_PASSWORD: 'AnhIT@ngugat'
+      MYSQL_DATABASE: anhit
+    ports:
+      - "3306:3306"
+    volumes:
+      - "./mysql/conf:/etc/mysql/conf.d/config-file.cnf"
+      - "./mysql/data:/var/lib/mysql:rw"
