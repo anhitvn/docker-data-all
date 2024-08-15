@@ -11,3 +11,4 @@ services:
     volumes:
       - "./mysql/conf:/etc/mysql/conf.d/config-file.cnf"
       - "./mysql/data:/var/lib/mysql:rw"
+    restart: always
