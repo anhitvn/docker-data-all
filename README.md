@@ -4,9 +4,9 @@
 - MySQL: MySQL Workbench
 - MSSQL: Azure Data Studio
 
-### MySQL
+## MySQL
 
-- MySQL version: 9.0.0
+- MySQL version: mysql:8.0.2
 - Psw root: `AnhIT@ngugat`
 - Fist Data: `anhit`
 - Run command:
@@ -15,7 +15,7 @@
   ```
   or run from docker-compose.yml with old version.
 
-### Start MSSQL use Docker-compose (map-volume)
+## Start MSSQL use Docker-compose (map-volume)
 
 MSSQL Version: `2022-latest`
 
